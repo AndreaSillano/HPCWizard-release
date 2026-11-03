@@ -16,8 +16,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HPCWizard — Slurm, made friendly. For Mac.</title>
-<meta name="description" content="HPCWizard is a native Mac app for Slurm clusters. Submit jobs, get GPUs, move files and serve your own models — without living in the terminal.">
+<title>HPCWizard — HPC clusters, made friendly. For Mac.</title>
+<meta name="description" content="HPCWizard is a native Mac app for HPC clusters. Submit jobs, get GPUs, move files, run JupyterLab notebooks and serve your own models — without living in the terminal.">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,6 +157,13 @@ a { color: inherit; text-decoration: none; }
 .chapter figure { margin: 56px 0 0; }
 .chapter figure img { border-radius: 10px; box-shadow: 0 0 0 .5px rgba(0,0,0,.25), 0 24px 50px -24px rgba(30,25,34,.5); }
 .chapter figcaption { margin-top: 14px; font: 400 12.5px var(--mono); color: var(--ink-2); }
+.chapter .figs { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
+.chapter .figs figure { margin: 0; }
+
+/* Beta badge (Notebooks): an outlined pill, like the one in the app's sidebar. */
+.beta { display: inline-block; vertical-align: middle; margin-left: 10px; padding: 3px 8px 2px; border-radius: 99px;
+  box-shadow: inset 0 0 0 1.2px currentColor; font: 600 10.5px/1.2 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--c4); }
+.top nav .beta { margin-left: 6px; padding: 2px 6px 1px; font-size: 9.5px; }
 
 /* Small UI recreations (native-looking, for features without a screenshot). */
 .ui-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
@@ -271,6 +278,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
   .chapter .body { margin-left: 0; }
   .chapter .num { font-size: 72px; }
   .specs, .themes, .ui-row { grid-template-columns: 1fr 1fr; }
+  .chapter .figs { grid-template-columns: 1fr; }
   .specs div:nth-child(2) { border-right: 0; }
   .plan + .plan { border-left: 0; border-top: 1px solid var(--ink); }
   footer .cols { grid-template-columns: 1fr 1fr; }
@@ -293,6 +301,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
     <a class="logo" href="#hero"><img src="assets/logo.png" alt="">HPCWizard</a>
     <nav>
       <a href="#jobs">Features</a>
+      <a href="#notebooks">Notebooks<span class="beta">Beta</span></a>
       <a href="#themes">Themes</a>
       <a href="#pricing">Price</a>
       <a href="#faq">FAQ</a>
@@ -308,15 +317,15 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
 <section class="hero" id="hero">
   <div class="container intro">
     <div>
-      <div class="kicker fade-in">A native Mac app for Slurm clusters</div>
+      <div class="kicker fade-in">A native Mac app for HPC clusters</div>
       <h1 class="display">
-        <span class="line"><span>Slurm,</span></span>
+        <span class="line"><span>Clusters,</span></span>
         <span class="line"><span>made</span></span>
         <span class="line"><span class="accent">friendly.</span></span>
       </h1>
     </div>
     <div class="fade-in">
-      <p class="lede">Submit jobs, get GPUs, move files and serve your own models on any Slurm cluster — from a calm, fast Mac app instead of a wall of terminal commands.</p>
+      <p class="lede">Submit jobs, get GPUs, move files, run notebooks and serve your own models on your HPC cluster — from a calm, fast Mac app instead of a wall of terminal commands.</p>
       <div class="actions">
         <a class="button solid" href="downloads/HPCWizard.dmg" data-download>                                   <!-- latest version from appcast.xml -->
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>
@@ -415,33 +424,61 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
   </div>
 </section>
 
-<!-- === CHAPTER 04 — MODELS & NOTIFICATIONS === -->
-<section class="chapter" id="models">
+<!-- === CHAPTER 04 — NOTEBOOKS (BETA) === -->
+<section class="chapter" id="notebooks">
   <div class="container">
     <div class="head reveal">
       <div class="num c4">04</div>
-      <div><div class="kicker">Models &amp; notifications</div><h2 class="display">Your own LLM, one tunnel away.</h2></div>
+      <div><div class="kicker">Notebooks <span class="beta">Beta</span></div><h2 class="display">JupyterLab on a cluster GPU.</h2></div>
     </div>
     <div class="body reveal d1">
-      <p class="text">Launch a llama.cpp preset on a GPU node and HPCWizard opens a secure tunnel to it — an OpenAI-compatible endpoint on your Mac. You’ll also get a notification the moment a session is ready, and ten minutes before its time runs out.</p>
+      <p class="text">Pick an image, choose how many GPUs, press Start. HPCWizard queues the job, starts JupyterLab inside an Apptainer container on the GPU node and opens it right in the app — like Colab, on your own cluster’s hardware.</p>
       <dl>
-        <div><dt>Presets</dt><dd>Model, GPUs and server flags, saved</dd></div>
-        <div><dt>Tunnels</dt><dd>Through your login node, nothing exposed</dd></div>
+        <div><dt>In the app</dt><dd>JupyterLab opens in the window, or in your browser</dd></div>
+        <div><dt>Environment</dt><dd>Keep packages between sessions, or start clean each time</dd></div>
+        <div><dt>Nothing to install</dt><dd>Just the image and its environment, in ~/.hpcwizard</dd></div>
+      </dl>
+    </div>
+    <figure class="reveal d2">
+      <img src="assets/notebooks-jupyter.png" alt="JupyterLab open inside HPCWizard, running a fine-tuning notebook on an NVIDIA L40S">
+      <figcaption>Fig. 4 — JupyterLab inside HPCWizard, running on gpu-l40s-07, with the time left in the toolbar.</figcaption>
+    </figure>
+    <div class="figs reveal d2" style="margin-top:28px">
+      <figure>
+        <img src="assets/notebooks.png" alt="The Notebooks page: image, GPU resources, environment and storage, with a Start Notebook button">
+        <figcaption>Fig. 5 — One session per cluster: image, resources, environment and what it takes on disk.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/notebooks-launch.png" alt="A notebook starting: GPU allocated, environment prepared, packages installing">
+        <figcaption>Fig. 6 — Every step from the queue to JupyterLab, with a notification when it’s ready.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- === CHAPTER 05 — TUNNELS & NOTIFICATIONS === -->
+<section class="chapter" id="models">
+  <div class="container">
+    <div class="head reveal">
+      <div class="num c1">05</div>
+      <div><div class="kicker">Tunnels &amp; notifications</div><h2 class="display">Anything on a node, on your Mac.</h2></div>
+    </div>
+    <div class="body reveal d1">
+      <p class="text">TensorBoard, a dashboard, a database, a model server: whatever your job runs on a compute node, open a secure tunnel to it and use it at localhost on your Mac. Serving your own LLM, for example, is a preset away. You’ll also get a notification the moment a session is ready, and ten minutes before its time runs out.</p>
+      <dl>
+        <div><dt>Tunnels</dt><dd>Any port on a job’s node, through the login node</dd></div>
+        <div><dt>Example: LLMs</dt><dd>A llama.cpp preset gives an OpenAI-compatible endpoint</dd></div>
         <div><dt>Notifications</dt><dd>Ready, almost out of time, transfer done</dd></div>
       </dl>
     </div>
     <figure class="reveal d2">
-      <img src="assets/ch4-presets.png" alt="Model presets with their jobs and tunnels">
-      <figcaption>Fig. 4 — Model presets: each one is a GPU job plus a tunnel to its server.</figcaption>
-    </figure>
-    <figure class="reveal d2" style="margin-top:28px">
-      <img src="assets/ch4-tunnels.png" alt="Tunnels to model servers: connected, disconnected and connecting">
-      <figcaption>Fig. 5 — Tunnels to each server, ready to use from your Mac.</figcaption>
+      <img src="assets/tunnels.png" alt="Tunnels to TensorBoard, a Dask dashboard and a model server">
+      <figcaption>Fig. 7 — TensorBoard, a Dask dashboard and a model server, each at a localhost address.</figcaption>
     </figure>
     <div class="ui-row reveal d2" style="grid-template-columns:1.5fr 1fr">
       <!-- The lines below type themselves; edit the data-type text. -->
       <div class="code" id="code">
-        <span class="ln c"># Your model, on your Mac</span>
+        <span class="ln c"># Example: your own LLM, through its tunnel</span>
         <span class="ln" data-type="curl localhost:18080/v1/chat/completions \"></span>
         <span class="ln" data-type="  -d '{&quot;messages&quot;:[{&quot;role&quot;:&quot;user&quot;,&quot;content&quot;:&quot;hi&quot;}]}'"></span>
         <span class="ln s" data-type="{&quot;content&quot;: &quot;Hello! How can I help?&quot;}"></span>
@@ -459,14 +496,14 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
 <section class="chapter" id="themes">
   <div class="container">
     <div class="head reveal">
-      <div class="num">05</div>
+      <div class="num">06</div>
       <div><div class="kicker">Appearance</div><h2 class="display">Four looks. One app.</h2></div>
     </div>
     <div class="themes">
       <figure class="reveal"><img src="assets/theme-standard-light.png" alt="Default theme"><figcaption>Default <span>clean macOS</span></figcaption></figure>
       <figure class="reveal d1"><img src="assets/theme-retro-light.png" alt="80s theme"><figcaption>80s <span>Geneva &amp; Monaco</span></figcaption></figure>
       <figure class="reveal d2"><img src="assets/theme-blueprint-light.png" alt="Blueprint theme"><figcaption>Blueprint <span>always dark</span></figcaption></figure>
-      <figure class="reveal d3"><img src="assets/theme-highContrast-dark.png" alt="High Contrast theme"><figcaption>High Contrast <span>accessible</span></figcaption></figure>
+      <figure class="reveal d3"><img src="assets/theme-highContrast-light.png" alt="High Contrast theme"><figcaption>High Contrast <span>accessible</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -475,7 +512,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
 <section class="chapter" id="pricing">
   <div class="container">
     <div class="head reveal">
-      <div class="num">06</div>
+      <div class="num">07</div>
       <div><div class="kicker">Price</div><h2 class="display">Free. Every feature included.</h2></div>
     </div>
     <div class="pricing reveal d1">
@@ -502,7 +539,9 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
           <li>Built-in terminal and file browser</li>
           <li>Upload &amp; download with selection</li>
           <li>Ready and time-up notifications</li>
-          <li>Tunnels and LLM serving presets</li>
+          <li>Tunnels to any service on a node</li>
+          <li>LLM serving presets</li>
+          <li>JupyterLab notebooks on cluster GPUs (beta)</li>
           <li>All themes, menu bar extra</li>
         </ul>
       </div>
@@ -514,13 +553,14 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
 <section class="chapter" id="faq">
   <div class="container">
     <div class="head reveal">
-      <div class="num">07</div>
+      <div class="num">08</div>
       <div><div class="kicker">Release notes &amp; questions</div><h2 class="display">The fine print.</h2></div>
     </div>
     <div class="split">
       <div class="reveal d1">
         <div class="kicker" style="margin-bottom:14px">What’s new<span data-version-suffix></span></div>   <!-- EDIT: changelog -->
         <ul class="log">
+          <li><span class="tag new">New</span>Notebooks (beta): JupyterLab on cluster GPUs, inside the app</li>
           <li><span class="tag new">New</span>Upload &amp; download with per-file selection</li>
           <li><span class="tag new">New</span>Notifications when interactive sessions start</li>
           <li><span class="tag new">New</span>Themes: 80s, Blueprint, High Contrast</li>
@@ -532,9 +572,10 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
       <div class="reveal d2">
         <div class="kicker" style="margin-bottom:14px">Questions</div>
         <details><summary>Is it really free?</summary><p>Yes. Every feature is in the free download, with no account, subscription or paid tier.</p></details>
-        <details><summary>Do I need to install anything on the cluster?</summary><p>No. HPCWizard uses standard SSH and the Slurm commands your cluster already has — squeue, sbatch, srun and friends.</p></details>
+        <details><summary>Do I need to install anything on the cluster?</summary><p>No. HPCWizard uses standard SSH and the Slurm commands your cluster already has — squeue, sbatch, srun and friends. Notebooks also need Apptainer, which most GPU clusters provide; the image and its environment live in a folder you choose.</p></details>
         <details><summary>Which clusters does it work with?</summary><p>Any Slurm cluster you can reach over SSH, including ones behind a jump host. Passwords, keys and one-time codes all work.</p></details>
         <details><summary>Is my password stored?</summary><p>No. You sign in once per session to open a secure connection. API keys for tunnels are kept in the macOS Keychain.</p></details>
+        <details><summary>What does “beta” mean for Notebooks?</summary><p>It works, and it’s included like everything else, but it’s new: it hasn’t met many clusters yet. If a notebook fails to start on yours, the error is shown in the app — please send it along.</p></details>
         <details><summary>Does it keep checking the cluster?</summary><p>No. HPCWizard only talks to the cluster when you do something, so it puts no load on the login node.</p></details>
       </div>
     </div>
@@ -558,7 +599,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
 <footer>
   <div class="container">
     <div class="cols">
-      <div><div class="logo"><img src="assets/logo.png" alt="">HPCWizard</div><p style="margin:0;max-width:320px">A native Mac app for Slurm clusters. Made by Andrea Sillano.</p></div>
+      <div><div class="logo"><img src="assets/logo.png" alt="">HPCWizard</div><p style="margin:0;max-width:320px">A native Mac app for HPC clusters. Made by Andrea Sillano.</p></div>
       <div><h4>Product</h4><a href="#jobs">Features</a><a href="#themes">Themes</a><a href="#pricing">Price</a><a href="#faq">Release notes</a></div>
       <div><h4>Support</h4><a href="#faq">FAQ</a><a href="mailto:hello@example.com">Contact</a></div>       <!-- EDIT: contact -->
       <div><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a></div>
