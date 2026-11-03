@@ -9,7 +9,7 @@
 
   Common edits
     • Text: change it directly in the section.
-    • Version, price, links: search for "EDIT".
+    • Links: search for "EDIT". Version and downloads come from appcast.xml.
     • Screenshots: replace the files in ./assets (same names) — any size works.
 -->
 <html lang="en">
@@ -294,7 +294,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
     <nav>
       <a href="#jobs">Features</a>
       <a href="#themes">Themes</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#pricing">Price</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="right">
@@ -471,41 +471,40 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
   </div>
 </section>
 
-<!-- === PRICING (EDIT: prices and lists) === -->
+<!-- === PRICE: free, everything included === -->
 <section class="chapter" id="pricing">
   <div class="container">
     <div class="head reveal">
       <div class="num">06</div>
-      <div><div class="kicker">Pricing</div><h2 class="display">Free to start. Pay once for Pro.</h2></div>
+      <div><div class="kicker">Price</div><h2 class="display">Free. Every feature included.</h2></div>
     </div>
     <div class="pricing reveal d1">
       <div class="plan">
         <h3>Free</h3>
         <div class="price">€0</div>
-        <p class="sub">Everything you need to work on one cluster.</p>
+        <p class="sub">No account, no subscription, no locked features.</p>
         <ul>
-          <li>One cluster connection</li>
-          <li>Submit, inspect and cancel jobs</li>
-          <li>Cluster and partition overview</li>
-          <li>Built-in terminal and file browser</li>
-          <li>Default theme</li>
+          <li>Every feature, for everyone</li>
+          <li>Automatic updates</li>
+          <li>Signed and notarized by Apple</li>
         </ul>
-        <a class="button line" href="downloads/HPCWizard.dmg" data-download>Download</a>
+        <a class="button solid" href="downloads/HPCWizard.dmg" data-download>Download for Mac</a>
       </div>
       <div class="plan">
-        <h3>Pro</h3>
-        <div class="price">€19<small>one-time</small></div>
-        <p class="sub">For people who live on the cluster. Student pricing available.</p>
+        <h3>Everything included</h3>
+        <p class="sub" style="margin-top:12px">All of it, in the free download.</p>
         <ul>
-          <li>Unlimited clusters</li>
+          <li>Unlimited cluster connections</li>
+          <li>Submit, inspect and cancel jobs</li>
           <li>Favorites and one-click jobs</li>
           <li>Start forecasts, queue position, Fix &amp; Resubmit</li>
-          <li>Ready and time-up notifications</li>
+          <li>Cluster and partition overview</li>
+          <li>Built-in terminal and file browser</li>
           <li>Upload &amp; download with selection</li>
+          <li>Ready and time-up notifications</li>
           <li>Tunnels and LLM serving presets</li>
           <li>All themes, menu bar extra</li>
         </ul>
-        <a class="button solid" href="#">Buy Pro</a>
       </div>
     </div>
   </div>
@@ -520,7 +519,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
     </div>
     <div class="split">
       <div class="reveal d1">
-        <div class="kicker" style="margin-bottom:14px">What’s new in 1.0</div>   <!-- EDIT: changelog -->
+        <div class="kicker" style="margin-bottom:14px">What’s new<span data-version-suffix></span></div>   <!-- EDIT: changelog -->
         <ul class="log">
           <li><span class="tag new">New</span>Upload &amp; download with per-file selection</li>
           <li><span class="tag new">New</span>Notifications when interactive sessions start</li>
@@ -532,6 +531,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
       </div>
       <div class="reveal d2">
         <div class="kicker" style="margin-bottom:14px">Questions</div>
+        <details><summary>Is it really free?</summary><p>Yes. Every feature is in the free download, with no account, subscription or paid tier.</p></details>
         <details><summary>Do I need to install anything on the cluster?</summary><p>No. HPCWizard uses standard SSH and the Slurm commands your cluster already has — squeue, sbatch, srun and friends.</p></details>
         <details><summary>Which clusters does it work with?</summary><p>Any Slurm cluster you can reach over SSH, including ones behind a jump host. Passwords, keys and one-time codes all work.</p></details>
         <details><summary>Is my password stored?</summary><p>No. You sign in once per session to open a secure connection. API keys for tunnels are kept in the macOS Keychain.</p></details>
@@ -544,11 +544,11 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
 <!-- === FINAL CALL === -->
 <section class="final">
   <div class="container">
-    <div class="kicker" style="color:#8C7F99;margin-bottom:18px">HPCWizard 1.0 for Mac</div>
+    <div class="kicker" style="color:#8C7F99;margin-bottom:18px">HPCWizard<span data-version-suffix></span> for Mac</div>
     <h2 class="display reveal">Spend less time in the queue. More on the work.</h2>
     <div class="reveal d1" style="display:flex;gap:12px;flex-wrap:wrap">
       <a class="button solid" href="downloads/HPCWizard.dmg" data-download>Download for Mac <span class="meta">Free</span></a>
-      <a class="button line" href="#pricing">See Pro</a>
+      <a class="button line" href="#jobs">Take the tour</a>
     </div>
   </div>
   <div class="big-stripes"><i></i><i></i><i></i><i></i></div>
@@ -559,7 +559,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
   <div class="container">
     <div class="cols">
       <div><div class="logo"><img src="assets/logo.png" alt="">HPCWizard</div><p style="margin:0;max-width:320px">A native Mac app for Slurm clusters. Made by Andrea Sillano.</p></div>
-      <div><h4>Product</h4><a href="#jobs">Features</a><a href="#themes">Themes</a><a href="#pricing">Pricing</a><a href="#faq">Release notes</a></div>
+      <div><h4>Product</h4><a href="#jobs">Features</a><a href="#themes">Themes</a><a href="#pricing">Price</a><a href="#faq">Release notes</a></div>
       <div><h4>Support</h4><a href="#faq">FAQ</a><a href="mailto:hello@example.com">Contact</a></div>       <!-- EDIT: contact -->
       <div><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a></div>
     </div>
@@ -634,6 +634,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
       if (!version) return;
       const minOS = (field(latest, 'minimumSystemVersion') || '14.0').replace(/\.0$/, '');
       document.querySelectorAll('[data-latest-version]').forEach(el => { el.textContent = `v${version} · macOS ${minOS}+`; });
+      document.querySelectorAll('[data-version-suffix]').forEach(el => { el.textContent = ` ${version}`; });
       document.querySelectorAll('a[data-download]').forEach(a => { a.href = `downloads/HPCWizard-${version}.dmg`; });
     })
     .catch(() => {});  // keep the static fallback links
