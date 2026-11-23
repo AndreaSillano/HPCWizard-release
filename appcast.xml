@@ -3,6 +3,15 @@
     <channel>
         <title>HPCWizard</title>
         <item>
+            <title>0.3.3</title>
+            <pubDate>Mon, 23 Nov 2026 11:57:49 +0100</pubDate>
+            <sparkle:version>6</sparkle:version>
+            <sparkle:shortVersionString>0.3.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://andreasillano.github.io/HPCWizard-release/downloads/HPCWizard-0.3.3.zip" length="6325708" type="application/octet-stream" sparkle:edSignature="x8ObGkmFBCT9arUOdU0SeyWkxbtqgVaeknmmq2mYan5j344IS7AeJo5hOLaRmd5mnzb9DLgTLQRJXxynHMq3Cg=="/>
+        </item>
+        <item>
             <title>0.3.2</title>
             <pubDate>Mon, 23 Nov 2026 11:51:04 +0100</pubDate>
             <sparkle:version>5</sparkle:version>
@@ -19,15 +28,6 @@
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <enclosure url="https://andreasillano.github.io/HPCWizard-release/downloads/HPCWizard-0.3.1.zip" length="6296196" type="application/octet-stream" sparkle:edSignature="TJBazQ7NBS2UB1CLAZJ0/tzEIfgGuEdMkdAhcvn1TCd/lC8hmzbztnxzHY4MMluqhojjNrN6A7bFfyagSkpoDw=="/>
-        </item>
-        <item>
-            <title>0.3.0</title>
-            <pubDate>Tue, 03 Nov 2026 15:39:13 +0100</pubDate>
-            <sparkle:version>3</sparkle:version>
-            <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://andreasillano.github.io/HPCWizard-release/downloads/HPCWizard-0.3.0.zip" length="6293821" type="application/octet-stream" sparkle:edSignature="oNwJ6GO6hKNJ8pAeHGUQUdwHy8zW6Y18ZkeqGN7ULP3dSOPZLFn/MaHMr1NboO/1YlGxjqPPdA7F1ffpMm7cAA=="/>
         </item>
     </channel>
 </rss>
