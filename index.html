@@ -393,11 +393,16 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
         <div><dt>Forecast</dt><dd>“in 2h 10m” before you even submit</dd></div>
         <div><dt>Position</dt><dd>12th of 100 pending in gpu_a40</dd></div>
         <div><dt>Fix &amp; resubmit</dt><dd>Clamps a request to the partition’s limits</dd></div>
+        <div><dt>Cluster load</dt><dd>How busy each partition is, and how soon a job would start there</dd></div>
       </dl>
     </div>
     <figure class="reveal d2">
       <img src="assets/ch2-queue.png" alt="Start estimates in the Jobs table and the queue position in the job inspector">
       <figcaption>Fig. 2 — “in 2h 10m” from Slurm, “≈ in 3h” forecast, a job that can never start, and the queue position of a pending job.</figcaption>
+    </figure>
+    <figure class="reveal d2">
+      <img src="assets/cluster-load.png" alt="The Overview page with the Cluster Load column: GPUs in use per partition and the estimated start time for a small job">
+      <figcaption>Fig. 3 — Cluster Load on the Overview: every partition’s usage at a glance, and where a 1-GPU job starts soonest.</figcaption>
     </figure>
   </div>
 </section>
@@ -419,7 +424,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
     </div>
     <figure class="reveal d2">
       <img src="assets/ch3-files.png" alt="The Files page browsing a project folder while an upload is in progress">
-      <figcaption>Fig. 3 — Browsing a project on the cluster while an upload runs in the background.</figcaption>
+      <figcaption>Fig. 4 — Browsing a project on the cluster while an upload runs in the background.</figcaption>
     </figure>
   </div>
 </section>
@@ -441,16 +446,16 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
     </div>
     <figure class="reveal d2">
       <img src="assets/notebooks-jupyter.png" alt="JupyterLab open inside HPCWizard, running a fine-tuning notebook on an NVIDIA L40S">
-      <figcaption>Fig. 4 — JupyterLab inside HPCWizard, running on gpu-l40s-07, with the time left in the toolbar.</figcaption>
+      <figcaption>Fig. 5 — JupyterLab inside HPCWizard, running on gpu-l40s-07, with the time left in the toolbar.</figcaption>
     </figure>
     <div class="figs reveal d2" style="margin-top:28px">
       <figure>
         <img src="assets/notebooks.png" alt="The Notebooks page: image, GPU resources, environment and storage, with a Start Notebook button">
-        <figcaption>Fig. 5 — One session per cluster: image, resources, environment and what it takes on disk.</figcaption>
+        <figcaption>Fig. 6 — One session per cluster: image, resources, environment and what it takes on disk.</figcaption>
       </figure>
       <figure>
         <img src="assets/notebooks-launch.png" alt="A notebook starting: GPU allocated, environment prepared, packages installing">
-        <figcaption>Fig. 6 — Every step from the queue to JupyterLab, with a notification when it’s ready.</figcaption>
+        <figcaption>Fig. 7 — Every step from the queue to JupyterLab, with a notification when it’s ready.</figcaption>
       </figure>
     </div>
   </div>
@@ -464,16 +469,16 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
       <div><div class="kicker">Tunnels &amp; notifications</div><h2 class="display">Anything on a node, on your Mac.</h2></div>
     </div>
     <div class="body reveal d1">
-      <p class="text">TensorBoard, a dashboard, a database, a model server: whatever your job runs on a compute node, open a secure tunnel to it and use it at localhost on your Mac. Serving your own LLM, for example, is a preset away. You’ll also get a notification the moment a session is ready, and ten minutes before its time runs out.</p>
+      <p class="text">TensorBoard, a dashboard, a database, a model server: whatever your job runs on a compute node, open a secure tunnel to it and use it at localhost on your Mac. You’ll also get a notification the moment a session is ready, and ten minutes before its time runs out.</p>
       <dl>
         <div><dt>Tunnels</dt><dd>Any port on a job’s node, through the login node</dd></div>
-        <div><dt>Example: LLMs</dt><dd>A llama.cpp preset gives an OpenAI-compatible endpoint</dd></div>
+        <div><dt>Example: LLMs</dt><dd>Reach a model server on a GPU node at localhost</dd></div>
         <div><dt>Notifications</dt><dd>Ready, almost out of time, transfer done</dd></div>
       </dl>
     </div>
     <figure class="reveal d2">
       <img src="assets/tunnels.png" alt="Tunnels to TensorBoard, a Dask dashboard and a model server">
-      <figcaption>Fig. 7 — TensorBoard, a Dask dashboard and a model server, each at a localhost address.</figcaption>
+      <figcaption>Fig. 8 — TensorBoard, a Dask dashboard and a model server, each at a localhost address.</figcaption>
     </figure>
     <div class="ui-row reveal d2" style="grid-template-columns:1.5fr 1fr">
       <!-- The lines below type themselves; edit the data-type text. -->
@@ -536,12 +541,12 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
           <li>Favorites and one-click jobs</li>
           <li>Account, QoS, GPU type and custom Slurm options</li>
           <li>Start forecasts, queue position, Fix &amp; Resubmit</li>
+          <li>Cluster load and start times per partition</li>
           <li>Cluster and partition overview</li>
           <li>Built-in terminal and file browser</li>
           <li>Upload &amp; download with selection</li>
           <li>Ready and time-up notifications</li>
           <li>Tunnels to any service on a node</li>
-          <li>LLM serving presets</li>
           <li>JupyterLab notebooks on cluster GPUs (beta)</li>
           <li>All themes, menu bar extra</li>
         </ul>
@@ -561,6 +566,9 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
       <div class="reveal d1">
         <div class="kicker" style="margin-bottom:14px">What’s new<span data-version-suffix></span></div>   <!-- EDIT: changelog -->
         <ul class="log">
+          <li><span class="tag new">New</span>Cluster Load on the Overview: usage and start times for every partition</li>
+          <li><span class="tag new">New</span>Filter the load view by GPU or CPU partitions</li>
+          <li><span class="tag improved">Improved</span>LLM presets are retired; tunnels work with any server you run</li>
           <li><span class="tag fixed">Fixed</span>Start estimates on clusters whose Slurm words them differently</li>
           <li><span class="tag new">New</span>Account, QoS and GPU type (incl. MIG slices) when submitting, read from the cluster</li>
           <li><span class="tag new">New</span>Per-cluster default account, QoS and extra Slurm options</li>
