@@ -534,6 +534,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
           <li>Unlimited cluster connections</li>
           <li>Submit, inspect and cancel jobs</li>
           <li>Favorites and one-click jobs</li>
+          <li>Account, QoS, GPU type and custom Slurm options</li>
           <li>Start forecasts, queue position, Fix &amp; Resubmit</li>
           <li>Cluster and partition overview</li>
           <li>Built-in terminal and file browser</li>
@@ -560,6 +561,8 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
       <div class="reveal d1">
         <div class="kicker" style="margin-bottom:14px">What’s new<span data-version-suffix></span></div>   <!-- EDIT: changelog -->
         <ul class="log">
+          <li><span class="tag new">New</span>Account, QoS and GPU type (incl. MIG slices) when submitting, read from the cluster</li>
+          <li><span class="tag new">New</span>Per-cluster default account, QoS and extra Slurm options</li>
           <li><span class="tag fixed">Security</span>Tunnels use a fresh private socket on the login node</li>
           <li><span class="tag fixed">Security</span>Programs on the cluster can no longer read your clipboard</li>
           <li><span class="tag fixed">Security</span>Notebook links only open web pages, never local files</li>
@@ -576,7 +579,7 @@ footer .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid #2E26
         <div class="kicker" style="margin-bottom:14px">Questions</div>
         <details><summary>Is it really free?</summary><p>Yes. Every feature is in the free download, with no account, subscription or paid tier.</p></details>
         <details><summary>Do I need to install anything on the cluster?</summary><p>No. HPCWizard uses standard SSH and the Slurm commands your cluster already has — squeue, sbatch, srun and friends. Notebooks also need Apptainer, which most GPU clusters provide; the image and its environment live in a folder you choose.</p></details>
-        <details><summary>Which clusters does it work with?</summary><p>Any Slurm cluster you can reach over SSH, including ones behind a jump host. Passwords, keys and one-time codes all work.</p></details>
+        <details><summary>Which clusters does it work with?</summary><p>Any Slurm cluster you can reach over SSH, including ones behind a jump host. Clusters that require an account, a QoS or a specific GPU type work too: set them per job or once per cluster. Passwords, keys and one-time codes all work.</p></details>
         <details><summary>Is my password stored?</summary><p>No. You sign in once per session to open a secure connection. API keys for tunnels are kept in the macOS Keychain.</p></details>
         <details><summary>What does “beta” mean for Notebooks?</summary><p>It works, and it’s included like everything else, but it’s new: it hasn’t met many clusters yet. If a notebook fails to start on yours, the error is shown in the app — please send it along.</p></details>
         <details><summary>Does it keep checking the cluster?</summary><p>No. HPCWizard only talks to the cluster when you do something, so it puts no load on the login node.</p></details>
